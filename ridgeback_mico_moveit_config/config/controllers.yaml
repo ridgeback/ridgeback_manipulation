@@ -1,0 +1,12 @@
+controller_list:
+  - name: mico_arm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - mico_arm_joint_1
+      - mico_arm_joint_2
+      - mico_arm_joint_3
+      - mico_arm_joint_4
+      - mico_arm_joint_5
+      - mico_arm_joint_6
+      - mico_arm_joint_7

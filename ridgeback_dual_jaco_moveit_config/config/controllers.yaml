@@ -1,0 +1,24 @@
+controller_list:
+  - name: left_jaco_arm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - left_jaco_arm_joint_1
+      - left_jaco_arm_joint_2
+      - left_jaco_arm_joint_3
+      - left_jaco_arm_joint_4
+      - left_jaco_arm_joint_5
+      - left_jaco_arm_joint_6
+      - left_jaco_arm_joint_7
+controller_list:
+  - name: right_jaco_arm
+    action_ns: follow_joint_trajectory
+    type: FollowJointTrajectory
+    joints:
+      - right_jaco_arm_joint_1
+      - right_jaco_arm_joint_2
+      - right_jaco_arm_joint_3
+      - right_jaco_arm_joint_4
+      - right_jaco_arm_joint_5
+      - right_jaco_arm_joint_6
+      - right_jaco_arm_joint_7
