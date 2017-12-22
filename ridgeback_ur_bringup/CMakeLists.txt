@@ -1,0 +1,25 @@
+cmake_minimum_required(VERSION 2.8.3)
+project(ridgeback_ur_bringup)
+
+find_package(catkin REQUIRED COMPONENTS
+  tf2_ros
+  ur_modern_driver
+)
+
+catkin_package(
+#  INCLUDE_DIRS include
+#  LIBRARIES ridgeback_ur_bringup
+#  CATKIN_DEPENDS tf2_ros ur_modern_driver
+#  DEPENDS system_lib
+)
+
+include_directories(
+# include
+  ${catkin_INCLUDE_DIRS}
+)
+
+if (CATKIN_ENABLE_TESTING)
+  find_package(roslaunch REQUIRED)
+  roslaunch_add_file_check(launch/ridgeback_ur_bringup.launch)
+  roslaunch_add_file_check(launch/ridgeback_dual_ur_bringup.launch)
+endif()
