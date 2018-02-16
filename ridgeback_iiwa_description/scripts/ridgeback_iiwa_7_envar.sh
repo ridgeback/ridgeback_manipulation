@@ -1,0 +1,3 @@
+export RIDGEBACK_ARM_HEIGHT=0.445
+export RIDGEBACK_ARM_ANGLE=-1.5708
+export RIDGEBACK_URDF_EXTRAS=$(catkin_find ridgeback_iiwa_description urdf/ridgeback_iiwa_7_description.urdf.xacro --first-only)
