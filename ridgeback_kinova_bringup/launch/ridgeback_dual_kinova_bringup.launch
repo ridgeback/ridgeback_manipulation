@@ -1,0 +1,17 @@
+<launch>
+  <arg name="left_serial_number"/>
+  <arg name="right_serial_number"/>
+  <arg name="arm_type"/>
+
+  <include file="$(find ridgeback_kinova_bringup)/launch/kinova_robot.launch">
+    <arg name="kinova_robotType" value="$(arg arm_type)"/>
+    <arg name="kinova_robotName" value="left_kinova_arm"/>
+    <arg name="kinova_robotSerial" value="$(arg left_serial_number)"/>
+  </include>
+
+  <include file="$(find ridgeback_kinova_bringup)/launch/kinova_robot.launch">
+    <arg name="kinova_robotType" value="$(arg arm_type)"/>
+    <arg name="kinova_robotName" value="right_kinova_arm"/>
+    <arg name="kinova_robotSerial" value="$(arg right_serial_number)"/>
+  </include>
+</launch>
