@@ -1,0 +1,10 @@
+moveit_setup_assistant_config:
+  URDF:
+    package: ridgeback_description
+    relative_path: urdf/ridgeback.urdf.xacro
+  SRDF:
+    relative_path: config/ridgeback.srdf
+  CONFIG:
+    author_name: Dave Niewinski
+    author_email: dniewinski@clearpathrobotics.com
+    generated_timestamp: 1519247465
