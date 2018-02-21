@@ -10,8 +10,11 @@
     <param name="robot_type" value="$(arg kinova_robotType)" />
   </node>
 
-  <!--node name="$(arg kinova_robotName)_tf_updater" pkg="kinova_driver" type="kinova_tf_updater" output="screen" cwd="node" args="$(arg kinova_robotType)">
-    <remap from="/$(arg kinova_robotName)_tf_updater/in/joint_angles" to="/$(arg kinova_robotName)_driver/out/joint_angles"/>
-    <param name="base_frame" value="base_link"/>
-  </node -->
+  <node name="$(arg kinova_robotName)_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher">
+    <remap from="joint_states" to="/$(arg kinova_robotName)_driver/out/joint_state"/>
+  </node>
+
+  <node pkg="topic_tools" type="relay" name="$(arg kinova_robotName)_joint_relay" args="/$(arg kinova_robotName)_driver/out/joint_state /joint_states" />
+
+  <node name="$(arg kinova_robotName)_joint_trajectory_action_server" pkg="kinova_driver" type="joint_trajectory_action_server" output="screen" respawn="false" args="$(arg kinova_robotName)"/>
 </launch>
