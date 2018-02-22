@@ -1,7 +1,7 @@
 <launch>
-  <arg name="left_serial_number"/>
-  <arg name="right_serial_number"/>
-  <arg name="arm_type"/>
+  <arg name="left_serial_number" default="$(optenv RIDGEBACK_LEFT_KINOVA_SERIAL NOT_SET)" />
+  <arg name="right_serial_number" default="$(optenv RIDGEBACK_RIGHT_KINOVA_SERIAL NOT_SET)" />
+  <arg name="arm_type" default="$(optenv RIDGEBACK_KINOVA_ARM_TYPE NOT_SET)" />
 
   <include file="$(find ridgeback_kinova_bringup)/launch/kinova_robot.launch">
     <arg name="kinova_robotType" value="$(arg arm_type)"/>
