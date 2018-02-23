@@ -3,15 +3,6 @@
   <arg name="right_serial_number" default="$(optenv RIDGEBACK_RIGHT_KINOVA_SERIAL NOT_SET)" />
   <arg name="arm_type" default="$(optenv RIDGEBACK_KINOVA_ARM_TYPE NOT_SET)" />
 
-  <include file="$(find ridgeback_kinova_bringup)/launch/kinova_robot.launch">
-    <arg name="kinova_robotType" value="$(arg arm_type)"/>
-    <arg name="kinova_robotName" value="left_kinova_arm"/>
-    <arg name="kinova_robotSerial" value="$(arg left_serial_number)"/>
-  </include>
-
-  <include file="$(find ridgeback_kinova_bringup)/launch/kinova_robot.launch">
-    <arg name="kinova_robotType" value="$(arg arm_type)"/>
-    <arg name="kinova_robotName" value="right_kinova_arm"/>
-    <arg name="kinova_robotSerial" value="$(arg right_serial_number)"/>
-  </include>
+  <node pkg="ridgeback_manipulation" type="launch_delay.sh" args="1 ridgeback_kinova_bringup kinova_robot.launch kinova_robotType:=$(arg arm_type) kinova_robotName:=left_kinova_arm kinova_robotSerial:=$(arg left_serial_number)" name="left_timed_roslaunch" output="screen"/>
+  <node pkg="ridgeback_manipulation" type="launch_delay.sh" args="3 ridgeback_kinova_bringup kinova_robot.launch kinova_robotType:=$(arg arm_type) kinova_robotName:=right_kinova_arm kinova_robotSerial:=$(arg right_serial_number)" name="right_timed_roslaunch" output="screen"/>
 </launch>
