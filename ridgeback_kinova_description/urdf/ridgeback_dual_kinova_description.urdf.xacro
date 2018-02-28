@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <joint name="left_arm_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="left_arm_mount_link" />
+    <origin xyz="$(optenv RIDGEBACK_LEFT_KINOVA_XYZ 0.21 0.14891 0.0)" rpy="$(optenv RIDGEBACK_LEFT_KINOVA_RPY 0 0 0)"/>
+  </joint>
+
+  <joint name="right_arm_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="right_arm_mount_link" />
+    <origin xyz="$(optenv RIDGEBACK_RIGHT_KINOVA_XYZ 0.21 -0.14891 0.0)" rpy="$(optenv RIDGEBACK_RIGHT_KINOVA_RPY 0 0 0)"/>
+  </joint>
+
+  <link name="left_arm_mount_link"/>
+  <link name="right_arm_mount_link"/>
+</robot>

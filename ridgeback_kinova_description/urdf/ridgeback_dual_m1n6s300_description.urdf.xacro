@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find ridgeback_kinova_description)/urdf/ridgeback_dual_kinova_description.urdf.xacro"/>
+  <xacro:include filename="$(find kinova_description)/urdf/m1n6s300.xacro"/>
+
+  <xacro:m1n6s300  base_parent="left_arm_mount_link" prefix="left_kinova_arm"/>
+  <xacro:m1n6s300  base_parent="right_arm_mount_link" prefix="right_kinova_arm"/>
+</robot>
