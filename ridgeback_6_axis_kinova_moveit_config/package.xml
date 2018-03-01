@@ -1,4 +1,4 @@
-<package>
+0<package>
 
   <name>ridgeback_6_axis_kinova_moveit_config</name>
   <version>0.3.0</version>
@@ -26,6 +26,7 @@
   <run_depend>xacro</run_depend>
   <build_depend>ridgeback_description</build_depend>
   <run_depend>ridgeback_description</run_depend>
-
+  <run_depend>trac_ik_kinematics_plugin</run_depend>
+  <run_depend>moveit_simple_controller_manager</run_depend>
 
 </package>
