@@ -1,4 +1,4 @@
-0<package>
+<package>
 
   <name>ridgeback_6_axis_kinova_moveit_config</name>
   <version>0.3.0</version>
