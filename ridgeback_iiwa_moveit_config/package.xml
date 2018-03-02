@@ -25,6 +25,9 @@
   <depend>ridgeback_description</depend>
   <depend>trac_ik_kinematics_plugin</depend>
   <depend>moveit_simple_controller_manager</depend>
+  <depend>iiwa_control</depend>
+  <depend>iiwa_hw</depend>
+  <depend>topic_tools</depend>
 
   <test_depend>roslaunch</test_depend>
 </package>

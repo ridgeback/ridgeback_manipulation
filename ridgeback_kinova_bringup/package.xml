@@ -12,6 +12,8 @@
   
   <depend>kinova_driver</depend>
   <depend>topic_tools</depend>
+  <depend>ridgeback_manipulation</depend>
+  <depend>robot_state_publisher</depend>
 
   <test_depend>roslaunch</test_depend>
 </package>

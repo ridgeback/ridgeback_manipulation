@@ -9,9 +9,4 @@
   <license>BSD</license>
 
   <buildtool_depend>catkin</buildtool_depend>
-  
-  <depend>ridgeback_kinova_bringup</depend>
-  <depend>ridgeback_kinova_description</depend>
-
-  <test_depend>roslaunch</test_depend>
 </package>
