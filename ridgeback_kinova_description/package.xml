@@ -10,6 +10,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>kinova_description</depend>
-  <depend>ridgeback_description</depend>
+  <exec_depend>kinova_description</exec_depend>
+  <exec_depend>ridgeback_description</exec_depend>
 </package>

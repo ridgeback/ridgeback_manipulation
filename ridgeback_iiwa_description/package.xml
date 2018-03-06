@@ -10,6 +10,6 @@
 
   <buildtool_depend>catkin</buildtool_depend>
 
-  <depend>iiwa_description</depend>
-  <depend>ridgeback_description</depend>
+  <exec_depend>iiwa_description</exec_depend>
+  <exec_depend>ridgeback_description</exec_depend>
 </package>

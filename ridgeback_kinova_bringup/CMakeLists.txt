@@ -11,3 +11,7 @@ if (CATKIN_ENABLE_TESTING)
   roslaunch_add_file_check(launch/ridgeback_dual_kinova_bringup.launch)
   roslaunch_add_file_check(launch/ridgeback_kinova_bringup.launch)
 endif()
+
+install(DIRECTORY launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)

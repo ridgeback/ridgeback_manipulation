@@ -10,10 +10,10 @@
 
   <buildtool_depend>catkin</buildtool_depend>
   
-  <depend>kinova_driver</depend>
-  <depend>topic_tools</depend>
-  <depend>ridgeback_manipulation</depend>
-  <depend>robot_state_publisher</depend>
+  <exec_depend>kinova_driver</exec_depend>
+  <exec_depend>topic_tools</exec_depend>
+  <exec_depend>ridgeback_manipulation</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
 
   <test_depend>roslaunch</test_depend>
 </package>

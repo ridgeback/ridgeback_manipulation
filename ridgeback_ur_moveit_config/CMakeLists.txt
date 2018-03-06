@@ -14,3 +14,15 @@ if (CATKIN_ENABLE_TESTING)
   roslaunch_add_file_check(launch/move_group.launch)
   roslaunch_add_file_check(launch/ridgeback_ur_moveit_planning_execution.launch)
 endif()
+
+install(DIRECTORY config launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY config launch
+  DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
+
+install(DIRECTORY scripts
+  DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
