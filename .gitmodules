@@ -1,0 +1,13 @@
+[submodule "ur_modern_driver"]
+	path = ur_modern_driver
+	url = https://github.com/dniewinski/ur_modern_driver.git
+[submodule "universal_robot"]
+	path = universal_robot
+	url = https://github.com/dniewinski/universal_robot.git
+[submodule "iiwa_stack"]
+	path = iiwa_stack
+	url = https://github.com/IFL-CAMP/iiwa_stack.git
+[submodule "kinova-ros"]
+	path = kinova-ros
+	url = https://github.com/Kinovarobotics/kinova-ros.git
+	branch = kinetic
