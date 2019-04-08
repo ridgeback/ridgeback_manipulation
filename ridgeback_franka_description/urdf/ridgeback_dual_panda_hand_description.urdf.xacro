@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <joint name="left_arm_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="left_franka_mount_link" />
+    <origin xyz="$(optenv RIDGEBACK_LEFT_FRANKA_XYZ 0.21 0.20 0.0)" rpy="$(optenv RIDGEBACK_LEFT_FRANKA_RPY 0 0 0)"/>
+  </joint>
+
+  <link name="left_franka_mount_link" />
+
+  <joint name="right_arm_mount_joint" type="fixed">
+    <parent link="mid_mount" />
+    <child link="right_franka_mount_link" />
+    <origin xyz="$(optenv RIDGEBACK_RIGHT_FRANKA_XYZ 0.21 -0.20 0.0)" rpy="$(optenv RIDGEBACK_RIGHT_FRANKA_RPY 0 0 0)"/>
+  </joint>
+
+  <link name="right_franka_mount_link" />
+
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:include filename="$(find franka_description)/robots/hand.xacro"/>
+
+  <xacro:panda_arm connected_to="left_franka_mount_link" arm_id='left_panda'/>
+  <xacro:hand ns="left_panda" rpy="0 0 ${-pi/4}" connected_to="left_panda_link8"/>
+
+  <xacro:panda_arm connected_to="right_franka_mount_link" arm_id='right_panda'/>
+  <xacro:hand ns="right_panda" rpy="0 0 ${-pi/4}" connected_to="right_panda_link8"/>
+
+</robot>
