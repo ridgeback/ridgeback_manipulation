@@ -1,3 +1,6 @@
 <launch>
+  <param name="trajectory_execution/execution_duration_monitoring" value="false"/>
+  <param name="moveit_controller_manager" value="moveit_simple_controller_manager/MoveItSimpleControllerManager"/>
 
+  <rosparam file="$(find ridgeback_hc10_moveit_config)/config/controllers.yaml"/>
 </launch>
