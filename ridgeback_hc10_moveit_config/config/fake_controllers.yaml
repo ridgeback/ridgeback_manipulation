@@ -1,0 +1,9 @@
+controller_list:
+  - name: fake_manipulator_controller
+    joints:
+      - hc10_joint_1_s
+      - hc10_joint_2_l
+      - hc10_joint_3_u
+      - hc10_joint_4_r
+      - hc10_joint_5_b
+      - hc10_joint_6_t

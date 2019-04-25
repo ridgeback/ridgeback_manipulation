@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+ <xacro:include filename="$(find ridgeback_manipulation_description)/urdf/hams.urdf.xacro" />
+
+  <link name="controller_enclosure">
+    <visual>
+    <origin xyz="0 0 0.204" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.44 0.535 0.408" />
+      </geometry>
+      <material name="grey">
+        <color rgba="0.2 0.2 0.2 1"/>
+      </material>
+    </visual>
+    <collision>
+    <origin xyz="0 0 0.204" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.44 0.535 0.408"/>
+      </geometry>
+    </collision>
+  </link>
+
+  <joint name="base_to_controller_enclosure" type="fixed">
+    <parent link="mid_mount"/>
+    <child link="controller_enclosure"/>
+    <origin xyz="0.16 0 0"/>
+  </joint>
+
+  <joint name="hc10_mount_joint" type="fixed">
+    <parent link="arm_mount_link"/>
+    <child link="hc10_base_link"/>
+    <origin xyz="0 0 0"/>
+  </joint>
+
+  <xacro:include filename="$(find motoman_hc10_support)/urdf/hc10_macro.xacro" />
+  <xacro:motoman_hc10 prefix="hc10_"/>
+</robot>
+

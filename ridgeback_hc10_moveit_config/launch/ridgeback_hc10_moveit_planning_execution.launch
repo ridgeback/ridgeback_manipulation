@@ -1,0 +1,12 @@
+<launch>
+  <rosparam command="load" file="$(find ridgeback_hc10_description)/config/joint_names_hc10.yaml"/>
+
+  <include file="$(find motoman_hc10_moveit_config)/launch/planning_context.launch" >
+    <arg name="load_robot_description" value="true" />
+  </include>
+
+  <include file="$(find motoman_hc10_moveit_config)/launch/move_group.launch">
+    <arg name="publish_monitored_planning_scene" value="true" />
+  </include>
+
+</launch>

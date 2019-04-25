@@ -1,0 +1,285 @@
+<?xml version="1.0" ?>
+<!--This does not replace URDF, and is not an extension of URDF.
+    This is a format for representing semantic information about the robot structure.
+    A URDF file must exist for this robot as well, where the joints and the links that are referenced are defined
+-->
+<robot name="ridgeback">
+    <!--GROUPS: Representation of a set of joints and links. This can be useful for specifying DOF to plan for, defining arms, end effectors, etc-->
+    <!--LINKS: When a link is specified, the parent joint of that link (if it exists) is automatically included-->
+    <!--JOINTS: When a joint is specified, the child link of that joint (which will always exist) is automatically included-->
+    <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
+    <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
+    <group name="manipulator">
+        <chain base_link="hc10_base_link" tip_link="hc10_tool0" />
+    </group>
+    <!--GROUP STATES: Purpose: Define a named state for a particular group, in terms of joint values. This is useful to define states like 'folded arms'-->
+    <group_state name="Home" group="manipulator">
+        <joint name="hc10_joint_1_s" value="0" />
+        <joint name="hc10_joint_2_l" value="0" />
+        <joint name="hc10_joint_3_u" value="0" />
+        <joint name="hc10_joint_4_r" value="0" />
+        <joint name="hc10_joint_5_b" value="0" />
+        <joint name="hc10_joint_6_t" value="0" />
+    </group_state>
+    <group_state name="Stow" group="manipulator">
+        <joint name="hc10_joint_1_s" value="0" />
+        <joint name="hc10_joint_2_l" value="-0.45" />
+        <joint name="hc10_joint_3_u" value="1.12" />
+        <joint name="hc10_joint_4_r" value="0" />
+        <joint name="hc10_joint_5_b" value="-1.57" />
+        <joint name="hc10_joint_6_t" value="0" />
+    </group_state>
+    <!--PASSIVE JOINT: Purpose: this element is used to mark joints that are not actuated-->
+    <passive_joint name="front_rocker" />
+    <passive_joint name="front_left_wheel" />
+    <passive_joint name="front_right_wheel" />
+    <passive_joint name="rear_left_wheel" />
+    <passive_joint name="rear_right_wheel" />
+    <!--DISABLE COLLISIONS: By default it is assumed that any link of the robot could potentially come into collision with any other link in the robot. This tag disables collision checking between a specified pair of links. -->
+    <disable_collisions link1="arm_mount_link" link2="axle_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="chassis_link" reason="Adjacent" />
+    <disable_collisions link1="arm_mount_link" link2="controller_enclosure" reason="Adjacent" />
+    <disable_collisions link1="arm_mount_link" link2="front_cover_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="front_lights_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="front_rocker_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="hc10_base_link" reason="Adjacent" />
+    <disable_collisions link1="arm_mount_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="arm_mount_link" link2="table_legs_link" reason="Adjacent" />
+    <disable_collisions link1="arm_mount_link" link2="table_top_link" reason="Adjacent" />
+    <disable_collisions link1="arm_mount_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="chassis_link" reason="Adjacent" />
+    <disable_collisions link1="axle_link" link2="controller_enclosure" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_cover_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_lights_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="front_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="axle_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="axle_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="axle_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="axle_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="rear_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="axle_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="axle_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="chassis_link" link2="controller_enclosure" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="front_cover_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="front_left_wheel_link" reason="Default" />
+    <disable_collisions link1="chassis_link" link2="front_lights_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="front_right_wheel_link" reason="Default" />
+    <disable_collisions link1="chassis_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="chassis_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="chassis_link" link2="left_side_cover_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="rear_cover_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="rear_left_wheel_link" reason="Default" />
+    <disable_collisions link1="chassis_link" link2="rear_lights_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="rear_right_wheel_link" reason="Default" />
+    <disable_collisions link1="chassis_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="chassis_link" link2="right_side_cover_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="table_legs_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="table_top_link" reason="Adjacent" />
+    <disable_collisions link1="chassis_link" link2="top_link" reason="Adjacent" />
+    <disable_collisions link1="controller_enclosure" link2="front_cover_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="front_lights_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="front_rocker_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="controller_enclosure" link2="table_legs_link" reason="Adjacent" />
+    <disable_collisions link1="controller_enclosure" link2="table_top_link" reason="Adjacent" />
+    <disable_collisions link1="controller_enclosure" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="front_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="front_lights_link" reason="Default" />
+    <disable_collisions link1="front_cover_link" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="front_rocker_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="front_cover_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="front_lights_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="front_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="front_left_wheel_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="front_left_wheel_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="front_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="front_rocker_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="front_lights_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="front_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="front_right_wheel_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="front_right_wheel_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="hc10_base_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="hc10_link_1_s" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="hc10_link_2_l" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="front_rocker_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="hc10_link_1_s" reason="Adjacent" />
+    <disable_collisions link1="hc10_base_link" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="hc10_base_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="hc10_link_2_l" reason="Adjacent" />
+    <disable_collisions link1="hc10_link_1_s" link2="hc10_link_3_u" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="hc10_link_1_s" link2="top_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="hc10_link_3_u" reason="Adjacent" />
+    <disable_collisions link1="hc10_link_2_l" link2="hc10_link_4_r" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="hc10_link_2_l" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="hc10_link_4_r" reason="Adjacent" />
+    <disable_collisions link1="hc10_link_3_u" link2="hc10_link_5_b" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="hc10_link_6_t" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="left_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="hc10_link_3_u" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="hc10_link_4_r" link2="hc10_link_5_b" reason="Adjacent" />
+    <disable_collisions link1="hc10_link_4_r" link2="hc10_link_6_t" reason="Never" />
+    <disable_collisions link1="hc10_link_5_b" link2="hc10_link_6_t" reason="Adjacent" />
+    <disable_collisions link1="left_side_cover_link" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="left_side_cover_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="rear_left_wheel_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="rear_lights_link" reason="Default" />
+    <disable_collisions link1="rear_cover_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="rear_cover_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="rear_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="rear_left_wheel_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="rear_left_wheel_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="rear_right_wheel_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="rear_rocker_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="rear_lights_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="rear_right_wheel_link" link2="rear_rocker_link" reason="Adjacent" />
+    <disable_collisions link1="rear_right_wheel_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="rear_right_wheel_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="rear_right_wheel_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="rear_right_wheel_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="rear_rocker_link" link2="right_side_cover_link" reason="Never" />
+    <disable_collisions link1="rear_rocker_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="rear_rocker_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="rear_rocker_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="right_side_cover_link" link2="table_legs_link" reason="Never" />
+    <disable_collisions link1="right_side_cover_link" link2="table_top_link" reason="Never" />
+    <disable_collisions link1="right_side_cover_link" link2="top_link" reason="Never" />
+    <disable_collisions link1="table_legs_link" link2="table_top_link" reason="Adjacent" />
+    <disable_collisions link1="table_legs_link" link2="top_link" reason="Default" />
+    <disable_collisions link1="table_top_link" link2="top_link" reason="Never" />
+</robot>

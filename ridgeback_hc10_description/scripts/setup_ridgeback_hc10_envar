@@ -1,0 +1,2 @@
+export RIDGEBACK_ARM_HEIGHT=0.459
+export RIDGEBACK_URDF_EXTRAS=$(catkin_find ridgeback_hc10_description urdf/ridgeback_hc10_description.urdf.xacro --first-only)
