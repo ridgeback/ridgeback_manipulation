@@ -1,5 +1,5 @@
 <launch>
-  <rosparam command="load" file="$(find ridgeback_hc10_support)/config/joint_names_hc10.yaml"/>
+  <rosparam command="load" file="$(find ridgeback_hc10_description)/config/joint_names_hc10.yaml"/>
 
   <include file="$(find ridgeback_hc10_moveit_config)/launch/move_group.launch" />
 </launch>
