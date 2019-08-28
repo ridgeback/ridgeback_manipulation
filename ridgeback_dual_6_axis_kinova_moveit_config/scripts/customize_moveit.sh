@@ -4,7 +4,7 @@ then
   mkdir "$1"
   cd "$1"
 
-  echo "Copying Dual UR Moveit Config"
+  echo "Copying Dual Kinova Moveit Config"
   cp -r $(catkin_find ridgeback_dual_6_axis_kinova_moveit_config)/. .
   echo "Updating Package"
   grep -rli 'ridgeback_dual_6_axis_kinova_moveit_config' * | xargs -i@ sed -i 's/ridgeback_dual_6_axis_kinova_moveit_config/'$1'/g' @

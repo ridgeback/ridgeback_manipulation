@@ -4,7 +4,7 @@ then
   mkdir "$1"
   cd "$1"
 
-  echo "Copying Single UR Moveit Config"
+  echo "Copying IIWA Moveit Config"
   cp -r $(catkin_find ridgeback_iiwa_moveit_config)/. .
   echo "Updating Package"
   grep -rli 'ridgeback_iiwa_moveit_config' * | xargs -i@ sed -i 's/ridgeback_iiwa_moveit_config/'$1'/g' @
