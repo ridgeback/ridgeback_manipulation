@@ -1,1 +1,2 @@
+#!/usr/bin/env bash
 export RIDGEBACK_URDF_EXTRAS=$(catkin_find ridgeback_franka_description urdf/ridgeback_panda_description.urdf.xacro --first-only)
