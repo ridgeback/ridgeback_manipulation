@@ -13,6 +13,14 @@ install(DIRECTORY urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 
-install(DIRECTORY scripts
+install(PROGRAMS
+  scripts/setup_ridgeback_dual_ur10_e_envar
+  scripts/setup_ridgeback_dual_ur10_envar
+  scripts/setup_ridgeback_dual_ur5_e_envar
+  scripts/setup_ridgeback_dual_ur5_envar
+  scripts/setup_ridgeback_ur10_e_envar
+  scripts/setup_ridgeback_ur10_envar
+  scripts/setup_ridgeback_ur5_e_envar
+  scripts/setup_ridgeback_ur5_envar
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )

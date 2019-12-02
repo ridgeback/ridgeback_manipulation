@@ -5,13 +5,14 @@ find_package(catkin REQUIRED)
 
 catkin_package()
 
-install(DIRECTORY launch 
+install(DIRECTORY launch
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
 install(DIRECTORY config
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-install(DIRECTORY scripts
+install(PROGRAMS
+  scripts/customize_moveit.sh
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
 

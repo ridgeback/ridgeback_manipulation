@@ -9,6 +9,10 @@ include_directories()
 install(DIRECTORY urdf
   DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
 )
-install(DIRECTORY scripts
+install(PROGRAMS
+  scripts/setup_ridgeback_dual_panda_envar
+  scripts/setup_ridgeback_dual_panda_hand_envar
+  scripts/setup_ridgeback_panda_envar
+  scripts/setup_ridgeback_panda_hand_envar
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
