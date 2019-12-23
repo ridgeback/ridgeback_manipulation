@@ -28,5 +28,7 @@ install(PROGRAMS
   scripts/setup_ridgeback_j2s7s300_envar
   scripts/setup_ridgeback_m1n6s200_envar
   scripts/setup_ridgeback_m1n6s300_envar
+  scripts/setup_ridgeback_gen3_envar
+  scripts/setup_ridgeback_gen3_robotiq_2f_85_envar
   DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
 )
