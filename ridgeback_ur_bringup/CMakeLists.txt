@@ -11,8 +11,10 @@ include_directories(
 
 if (CATKIN_ENABLE_TESTING)
   find_package(roslaunch REQUIRED)
-  roslaunch_add_file_check(launch/ridgeback_ur_bringup.launch)
-  roslaunch_add_file_check(launch/ridgeback_dual_ur_bringup.launch)
+  roslaunch_add_file_check(launch/ridgeback_ur_official_bringup.launch)
+  roslaunch_add_file_check(launch/ridgeback_dual_ur_official_bringup.launch)
+  roslaunch_add_file_check(launch/ridgeback_ur_modern_bringup.launch)
+  roslaunch_add_file_check(launch/ridgeback_dual_ur_modern_bringup.launch)
 endif()
 
 install(DIRECTORY launch
