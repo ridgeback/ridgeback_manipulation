@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+export RIDGEBACK_URDF_EXTRAS=$(catkin_find ridgeback_kinova_description urdf/ridgeback_gen3_robotiq_2f_140_description.urdf.xacro --first-only)

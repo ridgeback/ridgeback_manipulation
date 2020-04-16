@@ -1,6 +1,6 @@
 <package>
 
-  <name>ridgeback_gen3_moveit_config</name>
+  <name>ridgeback_gen3_robotiq_moveit_config</name>
   <version>0.3.0</version>
   <description>
      An automatically generated package with all the configuration and launch files for using the ridgeback with the MoveIt! Motion Planning Framework

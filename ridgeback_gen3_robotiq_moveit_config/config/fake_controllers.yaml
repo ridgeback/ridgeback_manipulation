@@ -8,3 +8,6 @@ controller_list:
       - kinova_arm_joint_5
       - kinova_arm_joint_6
       - kinova_arm_joint_7
+  - name: fake_gripper_controller
+    joints:
+      - kinova_arm_finger_joint

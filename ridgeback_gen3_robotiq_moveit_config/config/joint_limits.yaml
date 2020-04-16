@@ -2,6 +2,11 @@
 # Specific joint properties can be changed with the keys [max_position, min_position, max_velocity, max_acceleration]
 # Joint limits can be turned off with [has_velocity_limits, has_acceleration_limits]
 joint_limits:
+  kinova_arm_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: false
+    max_acceleration: 0
   kinova_arm_joint_1:
     has_velocity_limits: true
     max_velocity: 1.3963
@@ -35,5 +40,30 @@ joint_limits:
   kinova_arm_joint_7:
     has_velocity_limits: true
     max_velocity: 1.2218
+    has_acceleration_limits: false
+    max_acceleration: 0
+  kinova_arm_left_inner_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: false
+    max_acceleration: 0
+  kinova_arm_left_inner_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: false
+    max_acceleration: 0
+  kinova_arm_right_inner_finger_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: false
+    max_acceleration: 0
+  kinova_arm_right_inner_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2
+    has_acceleration_limits: false
+    max_acceleration: 0
+  kinova_arm_right_outer_knuckle_joint:
+    has_velocity_limits: true
+    max_velocity: 2
     has_acceleration_limits: false
     max_acceleration: 0

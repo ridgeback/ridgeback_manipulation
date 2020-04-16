@@ -1,4 +1,0 @@
-<launch>
-  <include file="$(find ridgeback_gen3_moveit_config)/launch/planning_context.launch" />
-  <include file="$(find ridgeback_gen3_moveit_config)/launch/move_group.launch" />
-</launch>

@@ -8,4 +8,4 @@ moveit_setup_assistant_config:
   CONFIG:
     author_name: Dave Niewinski
     author_email: dniewinskI@clearpathrobotics.com
-    generated_timestamp: 1587052751
+    generated_timestamp: 1587052422
