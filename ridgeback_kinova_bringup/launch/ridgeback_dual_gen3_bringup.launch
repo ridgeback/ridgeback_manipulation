@@ -2,7 +2,7 @@
 <launch>
     <arg name="cyclic_data_publish_rate" default="100"/> <!--Hz-->
     <arg name="use_hard_limits" default="false"/>
-    
+
     <!-- LEFT ARM -->
     <arg name="left_robot_name" default="left_kinova_arm"/>
     <arg name="left_prefix" default="left_kinova_arm_"/>
@@ -14,7 +14,7 @@
     <arg name="left_gripper" default=""/>
 
     <!-- Kortex API options -->
-    <arg name="left_ip_address" default="192.168.131.41"/>
+    <arg name="left_ip_address" default="192.168.131.40"/>
     <arg name="left_username" default="admin"/>
     <arg name="left_password" default="admin"/>
     <arg name="left_cyclic_data_publish_rate" default="$(arg cyclic_data_publish_rate)"/> <!--Hz-->
@@ -37,7 +37,7 @@
     <arg name="right_gripper" default=""/>
 
     <!-- Kortex API options -->
-    <arg name="right_ip_address" default="192.168.131.40"/>
+    <arg name="right_ip_address" default="192.168.131.41"/>
     <arg name="right_username" default="admin"/>
     <arg name="right_password" default="admin"/>
     <arg name="right_cyclic_data_publish_rate" default="$(arg cyclic_data_publish_rate)"/> <!--Hz-->
