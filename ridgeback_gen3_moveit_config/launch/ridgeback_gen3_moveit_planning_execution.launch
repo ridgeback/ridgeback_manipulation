@@ -2,7 +2,7 @@
   <arg name="debug" default="false" />
 
   <!-- Launch move group -->
-  <include file="$(find ridgeback_dual_gen3_moveit_config)/launch/move_group.launch">
+  <include file="$(find ridgeback_gen3_moveit_config)/launch/move_group.launch">
     <arg name="debug" default="$(arg debug)" />
   </include>
 </launch>
