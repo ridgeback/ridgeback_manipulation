@@ -9,5 +9,9 @@
 
   <xacro:include filename="$(find ur_e_description)/urdf/ur10e.urdf.xacro" />
 
-  <xacro:ur10e_robot prefix="ur_arm_" joint_limited="true"/>
+  <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur10_e_default.yaml" />
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+  <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
+
+  <xacro:ur10e_robot prefix="ur_arm_" joint_limited="true" kinematics_file="${load_yaml('$(arg kinematics_config)')}" />
 </robot>

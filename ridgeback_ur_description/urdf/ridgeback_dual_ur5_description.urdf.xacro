@@ -15,6 +15,10 @@
 
   <xacro:include filename="$(find ur_description)/urdf/ur5.urdf.xacro" />
 
-  <xacro:ur5_robot prefix="left_ur_arm_" joint_limited="true"/>
-  <xacro:ur5_robot prefix="right_ur_arm_" joint_limited="true"/>
+  <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur5_default.yaml" />
+  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
+  <xacro:include filename="$(find ur_description)/urdf/common.gazebo.xacro" />
+
+  <xacro:ur5_robot prefix="left_ur_arm_" joint_limited="true" kinematics_file="${load_yaml('$(arg kinematics_config)')}" />
+  <xacro:ur5_robot prefix="right_ur_arm_" joint_limited="true" kinematics_file="${load_yaml('$(arg kinematics_config)')}" />
 </robot>
