@@ -1,5 +1,5 @@
 controller_list:
-  - name: ''
+  - name: '/ur/ur_arm_scaled_pos_joint_traj_controller'
     action_ns: follow_joint_trajectory
     type: FollowJointTrajectory
     joints:
@@ -9,4 +9,3 @@ controller_list:
       - ur_arm_wrist_1_joint
       - ur_arm_wrist_2_joint
       - ur_arm_wrist_3_joint
-
