@@ -88,12 +88,6 @@
         <rosparam command="load" file="$(find kortex_description)/grippers/$(arg right_gripper)/config/joint_limits.yaml" unless="$(eval not arg('right_gripper'))"/>
     </node>
 
-    <!-- Start joint and robot state publisher -->
-    <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
-        <param name="rate" value="$(arg cyclic_data_publish_rate)" />
-        <rosparam param="source_list" subst_value="true">
-            [$(arg left_robot_name)/base_feedback/joint_state, $(arg right_robot_name)/base_feedback/joint_state]
-        </rosparam>
-        <param name="use_gui" value="false"/>
-    </node>
+    <node name="left_joint_state_relay" type="relay" pkg="topic_tools" args="/$(arg left_robot_name)/base_feedback/joint_state /joint_states" />
+    <node name="right_joint_state_relay" type="relay" pkg="topic_tools" args="/$(arg right_robot_name)/base_feedback/joint_state /joint_states" />
 </launch>
