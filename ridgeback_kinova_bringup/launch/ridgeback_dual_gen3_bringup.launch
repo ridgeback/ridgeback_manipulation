@@ -51,6 +51,7 @@
 
     <!-- Start the left arm kortex_driver node -->
     <node name="$(arg left_robot_name)_driver" pkg="kortex_driver" type="kortex_arm_driver" output="screen" ns="$(arg left_robot_name)">
+        <param name="sim" value="false"/>
         <param name="ip_address" value="$(arg left_ip_address)"/>
         <param name="username" value="$(arg left_username)"/>
         <param name="password" value="$(arg left_password)"/>
@@ -65,11 +66,13 @@
         <param name="dof" value="$(arg left_dof)"/>
         <param name="use_hard_limits" value="$(arg use_hard_limits)"/>
         <param name="prefix" value="$(arg left_prefix)"/>
+        <param name="robot_name" value="$(arg left_robot_name)"/>
         <rosparam command="load" file="$(find kortex_description)/arms/$(arg left_arm)/$(arg left_dof)dof/config/joint_limits.yaml"/>
         <rosparam command="load" file="$(find kortex_description)/grippers/$(arg left_gripper)/config/joint_limits.yaml" unless="$(eval not arg('left_gripper'))"/>
     </node>
     <!-- Start the right arm kortex_driver node -->
     <node name="$(arg right_robot_name)_driver" pkg="kortex_driver" type="kortex_arm_driver" output="screen" ns="$(arg right_robot_name)">
+        <param name="sim" value="false"/>
         <param name="ip_address" value="$(arg right_ip_address)"/>
         <param name="username" value="$(arg right_username)"/>
         <param name="password" value="$(arg right_password)"/>
@@ -84,11 +87,12 @@
         <param name="dof" value="$(arg right_dof)"/>
         <param name="use_hard_limits" value="$(arg use_hard_limits)"/>
         <param name="prefix" value="$(arg right_prefix)"/>
+        <param name="robot_name" value="$(arg right_robot_name)"/>
         <rosparam command="load" file="$(find kortex_description)/arms/$(arg right_arm)/$(arg right_dof)dof/config/joint_limits.yaml"/>
         <rosparam command="load" file="$(find kortex_description)/grippers/$(arg right_gripper)/config/joint_limits.yaml" unless="$(eval not arg('right_gripper'))"/>
     </node>
 
-    <!-- Start joint and robot state publisher -->
+
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <param name="rate" value="$(arg cyclic_data_publish_rate)" />
         <rosparam param="source_list" subst_value="true">
