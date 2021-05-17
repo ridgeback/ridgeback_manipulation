@@ -12,8 +12,8 @@
     <param name="robot_ip" value="$(arg robot_ip)" />
   </node>
 
-  <rosparam command="load" file="$(find franka_control)/config/default_controllers.yaml" />
-  <node name="panda_state_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="franka_state_controller"/>
+  <rosparam command="load" file="$(find ridgeback_franka_bringup)/config/default_controllers.yaml" />
+  <node name="panda_controller_spawner" pkg="controller_manager" type="spawner" respawn="false" output="screen" args="franka_state_controller position_joint_trajectory_controller"/>
   <node name="panda_joint_state_publisher" type="joint_state_publisher" pkg="joint_state_publisher" output="screen">
     <rosparam if="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states, franka_gripper/joint_states] </rosparam>
     <rosparam unless="$(arg load_gripper)" param="source_list">[franka_state_controller/joint_states] </rosparam>
