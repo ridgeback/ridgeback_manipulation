@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find ridgeback_manipulation_description)/urdf/hams.urdf.xacro" />
+
+  <xacro:include filename="$(find franka_description)/robots/panda_arm.xacro"/>
+  <xacro:panda_arm connected_to="arm_mount_link"/>
+
+</robot>
