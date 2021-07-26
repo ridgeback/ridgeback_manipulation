@@ -10,7 +10,7 @@
     <!--CHAINS: When a chain is specified, all the links along the chain (including endpoints) are included in the group. Additionally, all the joints that are parents to included links are also included. This means that joints along the chain and the parent joint of the base link are included in the group-->
     <!--SUBGROUPS: Groups can also be formed by referencing to already defined group names-->
     <group name="manipulator_left">
-        <chain base_link="left_ur_arm_base_link" tip_link="left_ur_arm_ee_link" />
+        <chain base_link="left_ur_arm_base_link" tip_link="left_ur_arm_tool0" />
     </group>
     <group name="manipulator_right">
         <chain base_link="right_ur_arm_base_link" tip_link="right_ur_arm_ee_link" />
@@ -167,13 +167,13 @@
     <disable_collisions link1="left_ur_arm_base_link" link2="right_ur_arm_ee_link" reason="Never" />
     <disable_collisions link1="left_ur_arm_base_link" link2="right_ur_arm_shoulder_link" reason="Never" />
     <disable_collisions link1="left_ur_arm_base_link" link2="top_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="left_ur_arm_wrist_1_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="left_ur_arm_wrist_2_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="left_ur_arm_wrist_3_link" reason="Adjacent" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="rear_cover_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="rear_lights_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="right_ur_arm_ee_link" reason="Never" />
-    <disable_collisions link1="left_ur_arm_ee_link" link2="right_ur_arm_wrist_3_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="left_ur_arm_wrist_1_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="left_ur_arm_wrist_2_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="left_ur_arm_wrist_3_link" reason="Adjacent" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="rear_cover_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="rear_lights_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="right_ur_arm_ee_link" reason="Never" />
+    <disable_collisions link1="left_ur_arm_tool0" link2="right_ur_arm_wrist_3_link" reason="Never" />
     <disable_collisions link1="left_ur_arm_forearm_link" link2="left_ur_arm_upper_arm_link" reason="Adjacent" />
     <disable_collisions link1="left_ur_arm_forearm_link" link2="left_ur_arm_wrist_1_link" reason="Adjacent" />
     <disable_collisions link1="left_ur_arm_shoulder_link" link2="left_ur_arm_upper_arm_link" reason="Adjacent" />
