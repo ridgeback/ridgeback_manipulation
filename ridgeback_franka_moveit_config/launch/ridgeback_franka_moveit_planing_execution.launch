@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find ridgeback_franka_moveit_config)/launch/move_group.launch">
+    <arg name="load_robot_description" value="true" />
+  </include>
+</launch>
