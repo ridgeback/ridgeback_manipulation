@@ -1,0 +1,4 @@
+- git:
+  uri: https://github.com/ipa-rwu/iiwa_stack.git
+  local-name: iiwa_stack
+  version: master
