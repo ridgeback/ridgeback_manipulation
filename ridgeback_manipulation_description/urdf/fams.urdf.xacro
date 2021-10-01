@@ -1,0 +1,214 @@
+<?xml version="1.0"?>
+<!-- Flat Arm Mount Structure -->
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+<link name="leg_1_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_2_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_3_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_4_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_5_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_6_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_7_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="leg_8_link">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+      <geometry>
+        <mesh filename="package://gnr91_ridgeback/meshes/bar.stl"/>
+      </geometry>
+      <material name="light_grey"/>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.15" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.04 0.04 0.30"/>
+      </geometry>  
+    </collision>
+  </link>
+
+  <link name="table_top_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://ridgeback_description/meshes/top.stl"/>
+      </geometry>
+      <material name="black"/>
+   </visual>
+   <collision>
+     <geometry>
+       <mesh filename="package://ridgeback_description/meshes/top.stl"/>
+     </geometry>
+   </collision>
+  </link>
+
+  <link name="fams_mid_link"/>
+  <link name="arm_mount_link"/>
+
+  <joint name="leg_1_joint" type="fixed">
+    <origin xyz="0.40 0.155 0" rpy="0 0 0.20943951023"/>
+    <parent link="mid_mount"/>
+    <child link="leg_1_link"/>
+  </joint>
+
+  <joint name="leg_2_joint" type="fixed">
+    <origin xyz="0.40 -0.155 0" rpy="0 0 -0.20943951023"/>
+    <parent link="mid_mount"/>
+    <child link="leg_2_link"/>
+  </joint>
+
+  <joint name="leg_3_joint" type="fixed">
+    <origin xyz="0.28 0.365 0" rpy="0 0 0"/>
+    <parent link="mid_mount"/>
+    <child link="leg_3_link"/>
+  </joint>
+
+  <joint name="leg_4_joint" type="fixed">
+    <origin xyz="0.28 -0.365 0" rpy="0 0 0"/>
+    <parent link="mid_mount"/>
+    <child link="leg_4_link"/>
+  </joint>
+
+  <joint name="leg_5_joint" type="fixed">
+    <origin xyz="0 0.365 0" rpy="0 0 0"/>
+    <parent link="mid_mount"/>
+    <child link="leg_5_link"/>
+  </joint>
+
+  <joint name="leg_6_joint" type="fixed">
+    <origin xyz="0 -0.365 0" rpy="0 0 0"/>
+    <parent link="mid_mount"/>
+    <child link="leg_6_link"/>
+  </joint>
+
+  <joint name="leg_7_joint" type="fixed">
+    <origin xyz="-0.38 0.3 0" rpy="0 0 -0.26179938779"/>
+    <parent link="mid_mount"/>
+    <child link="leg_7_link"/>
+  </joint>
+
+  <joint name="leg_8_joint" type="fixed">
+    <origin xyz="-0.38 -0.3 0" rpy="0 0 0.26179938779"/>
+    <parent link="mid_mount"/>
+    <child link="leg_8_link"/>
+  </joint>
+
+  <joint name="table_top_joint" type="fixed">
+    <origin xyz="0 0 0.3063499" rpy="0 0 0"/>
+    <parent link="chassis_link"/>
+    <child link="table_top_link"/>
+  </joint>
+
+  <joint name="fams_mid_joint" type="fixed">
+    <origin xyz="0 0 0.586499" rpy="0 0 0"/>
+    <parent link="base_link"/>
+    <child link="fams_mid_link"/>
+  </joint>
+
+  <joint name="arm_mount_joint" type="fixed">
+    <parent link="fams_mid_link"/>
+    <child link="arm_mount_link"/>
+    <origin xyz="0.33 0 0" rpy="0 0 0"/>
+  </joint>
+</robot>
