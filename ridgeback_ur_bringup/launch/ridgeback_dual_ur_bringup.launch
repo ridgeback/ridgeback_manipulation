@@ -10,7 +10,7 @@
   <arg name="left_stopped_controllers" default="left_ur_arm_pos_joint_traj_controller"/>
 
   <arg name="right_controller_config_file" default="$(find ridgeback_ur_bringup)/config/right_ur_controllers.yaml" doc="Config file used for defining the ROS-Control controllers."/>
-  <arg name="right_robot_ip" default="$(optenv RIDGEBACK_right_UR_IP 192.168.131.40)" doc="IP address by which the robot can be reached."/>
+  <arg name="right_robot_ip" default="$(optenv RIDGEBACK_RIGHT_UR_IP 192.168.131.41)" doc="IP address by which the robot can be reached."/>
   <arg name="right_kinematics_config" default="$(find ridgeback_ur_bringup)/config/default_config.yaml" doc="Kinematics config file used for calibration correction. This will be used to verify the robot's calibration is matching the robot_description."/>
   <arg name="right_prefix" default="right_ur_arm_" doc="tf_prefix used for the robot."/>
   <arg name="right_controllers" default="right_ur_arm_joint_state_controller right_ur_arm_scaled_pos_joint_traj_controller right_ur_arm_speed_scaling_state_controller right_ur_arm_force_torque_sensor_controller right_ur_arm_robot_status_controller" />
