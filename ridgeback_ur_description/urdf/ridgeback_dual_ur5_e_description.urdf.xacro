@@ -3,15 +3,15 @@
   <xacro:include filename="$(find ur_description)/urdf/inc/ur5e_macro.xacro" />
 
   <joint name="left_arm_mount_joint" type="fixed">
-    <parent link="left_arm_bulkhead_link" />
+    <parent link="tower_link" />
     <child link="left_ur_arm_base_link" />
-    <origin xyz="$(optenv RIDGEBACK_LEFT_UR_XYZ 0 0 0)" rpy="$(optenv RIDGEBACK_LEFT_UR_RPY 0 0 0)"/>
+    <origin xyz="$(optenv RIDGEBACK_LEFT_UR_XYZ 0 -0.3 0)" rpy="$(optenv RIDGEBACK_LEFT_UR_RPY 0 0 0)"/>
   </joint>
 
   <joint name="right_arm_mount_joint" type="fixed">
-    <parent link="right_arm_bulkhead_link" />
+    <parent link="tower_link" />
     <child link="right_ur_arm_base_link" />
-    <origin xyz="$(optenv RIDGEBACK_RIGHT_UR_XYZ 0 0 0)" rpy="$(optenv RIDGEBACK_RIGHT_UR_RPY 0 0 0)"/>
+    <origin xyz="$(optenv RIDGEBACK_RIGHT_UR_XYZ 0 0.1 0)" rpy="$(optenv RIDGEBACK_RIGHT_UR_RPY 0 0 0)"/>
   </joint>
 
   <xacro:ur5e_robot prefix="right_ur_arm_" />
