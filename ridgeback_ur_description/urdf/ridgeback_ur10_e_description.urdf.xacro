@@ -1,17 +1,13 @@
 <?xml version="1.0"?>
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
+  <xacro:include filename="$(find ur_description)/urdf/inc/ur10e_macro.xacro" />
+
   <joint name="arm_mount_joint" type="fixed">
-    <parent link="mid_mount" />
+    <parent link="top_plate_front_link" />
     <child link="ur_arm_base_link" />
-    <origin xyz="$(optenv RIDGEBACK_UR_XYZ 0.21 0.0 0.0)" rpy="$(optenv RIDGEBACK_UR_RPY 0 0 0)"/>
+    <origin xyz="$(optenv RIDGEBACK_UR_XYZ -0.105 0.0 0.0)" rpy="$(optenv RIDGEBACK_UR_RPY 0 0 3.1415927)"/>
   </joint>
 
-  <xacro:include filename="$(find ur_e_description)/urdf/ur10e.urdf.xacro" />
-
-  <xacro:arg name="kinematics_config" default="$(find ur_description)/config/ur10_e_default.yaml" />
-  <xacro:arg name="transmission_hw_interface" default="hardware_interface/PositionJointInterface"/>
-  <xacro:include filename="$(find ur_e_description)/urdf/common.gazebo.xacro" />
-
-  <xacro:ur10e_robot prefix="ur_arm_" joint_limited="true" kinematics_file="${load_yaml('$(arg kinematics_config)')}" />
+  <xacro:ur10e_robot prefix="ur_arm_" />
 </robot>
