@@ -92,7 +92,7 @@
         <rosparam command="load" file="$(find kortex_description)/grippers/$(arg right_gripper)/config/joint_limits.yaml" unless="$(eval not arg('right_gripper'))" subst_value="true"/>
     </node>
 
-
+    <!-- Start joint and robot state publisher -->
     <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher">
         <param name="rate" value="$(arg cyclic_data_publish_rate)" />
         <rosparam param="source_list" subst_value="true">
