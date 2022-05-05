@@ -18,7 +18,7 @@
   <param name="request_adapters" value="$(arg planning_adapters)" />
   <param name="start_state_max_bounds_error" value="$(arg start_state_max_bounds_error)" />
 
-  <param name="sample_duration" value="0.001"/>
+  <param name="sample_duration" value="0.1"/> <!-- Kinova Kortex only allows waypoint trajectories of up to 1000 waypoints. Increase sample duration to reduce waypoints -->
 
   <rosparam command="load" file="$(find ridgeback_dual_gen3_moveit_config)/config/ompl_planning.yaml"/>
 
