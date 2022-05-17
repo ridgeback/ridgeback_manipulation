@@ -1,0 +1,86 @@
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:macro name="dual_arm_tower" params="prefix:=dual_arm_tower parent_link *origin">
+    <!-- Add the main tower -->
+    <material name = "cpr_grey">
+      <color rgba = "0.2 0.2 0.2 1" />
+    </material>
+
+    <!-- Tower Body Link -->>
+    <link name="${prefix}_base_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_body.stl"/>
+        </geometry>
+        <material name="cpr_grey" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_body.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Tower Body Joint -->
+    <joint name="${prefix}_base_joint" type="fixed">
+      <parent link="${parent_link}" />
+      <child link="${prefix}_base_link" />
+      <xacro:insert_block name="origin" />
+    </joint>
+
+    <!-- Tower Mid Link -->
+    <link name="${prefix}_mid_link"/>
+    <joint name="${prefix}_mid_joint" type="fixed">
+      <parent link="${prefix}_base_link"/>
+      <child link="${prefix}_mid_link"/>
+      <origin xyz="0 0 0.335" rpy="0 0 0"/>
+    </joint>
+
+    <!-- Left Shoulder Mounting Link -->
+    <link name="${prefix}_left_shoulder_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 -${PI/2}"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_shoulder.stl"/>
+        </geometry>
+        <material name="cpr_grey" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 -${PI/2}"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_shoulder.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Right Shoulder Mounting Link -->
+    <link name="${prefix}_right_shoulder_link">
+      <visual>
+        <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_shoulder.stl"/>
+        </geometry>
+        <material name="cpr_grey" />
+      </visual>
+      <collision>
+        <origin xyz="0 0 0" rpy="0 0 ${PI/2}"/>
+        <geometry>
+          <mesh filename="package://ridgeback_manipulation_description/meshes/dual_arm_tower_shoulder.stl"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Shoulder Joints -->
+    <joint name="${prefix}_left_shoulder_joint" type="fixed">
+      <parent link="${prefix}_base_link" />
+      <child link="${prefix}_left_shoulder_link" />
+      <origin xyz="0 0.213 0.6445" rpy="0 0 0" />
+    </joint>
+    <joint name="${prefix}_right_shoulder_joint" type="fixed">
+      <parent link="${prefix}_base_link" />
+      <child link="${prefix}_right_shoulder_link" />
+      <origin xyz="0 -0.213 0.6445" rpy="0 0 0" />
+    </joint>
+  </xacro:macro>
+</robot>
