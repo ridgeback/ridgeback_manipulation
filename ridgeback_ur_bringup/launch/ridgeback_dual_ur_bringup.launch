@@ -11,6 +11,7 @@
   <arg name="left_reverse_port" default="$(optenv RIDGEBACK_LEFT_UR_REVERSE_PORT 50001)" doc="Port that will be opened by the driver to allow direct communication between the driver and the robot controller."/>
   <arg name="left_script_sender_port" default="$(optenv RIDGEBACK_LEFT_UR_SENDER_PORT 50002)" doc="The driver will offer an interface to receive the program's URScript on this port. If the robot cannot connect to this port, `External Control` will stop immediately."/>
   <arg name="left_trajectory_port" default="$(optenv RIDGEBACK_LEFT_UR_TRAJECTORY_PORT 50003)" doc="Port that will be opened by the driver to allow trajectory forwarding."/>
+  <arg name="left_script_command_port" default="$(optenv RIDGEBACK_LEFT_UR_COMMAND_PORT 50004)" doc="Port that will be opened by the driver to allow forwarding script commands to the robot."/>
 
   <arg name="right_controller_config_file" default="$(find ridgeback_ur_bringup)/config/right_ur_controllers.yaml" doc="Config file used for defining the ROS-Control controllers."/>
   <arg name="right_robot_ip" default="$(optenv RIDGEBACK_RIGHT_UR_IP 192.168.131.41)" doc="IP address by which the robot can be reached."/>
@@ -21,6 +22,7 @@
   <arg name="right_reverse_port" default="$(optenv RIDGEBACK_RIGHT_UR_REVERSE_PORT 60001)" doc="Port that will be opened by the driver to allow direct communication between the driver and the robot controller."/>
   <arg name="right_script_sender_port" default="$(optenv RIDGEBACK_RIGHT_UR_SENDER_PORT 60002)" doc="The driver will offer an interface to receive the program's URScript on this port. If the robot cannot connect to this port, `External Control` will stop immediately."/>
   <arg name="right_trajectory_port" default="$(optenv RIDGEBACK_RIGHT_UR_TRAJECTORY_PORT 60003)" doc="Port that will be opened by the driver to allow trajectory forwarding."/>
+  <arg name="right_script_command_port" default="$(optenv RIDGEBACK_RIGHT_UR_COMMAND_PORT 60004)" doc="Port that will be opened by the driver to allow forwarding script commands to the robot."/>
 
   <arg name="tool_voltage" default="0" doc="Tool voltage set at the beginning of the UR program. Only used, when `use_tool_communication` is set to true."/>
   <arg name="tool_parity" default="0" doc="Parity configuration used for tool communication. Only used, when `use_tool_communication` is set to true."/>
@@ -42,6 +44,7 @@
       <arg name="reverse_port" value="$(arg left_reverse_port)"/>
       <arg name="script_sender_port" value="$(arg left_script_sender_port)"/>
       <arg name="trajectory_port" value="$(arg left_trajectory_port)"/>
+      <arg name="script_command_port" value="$(arg left_script_command_port)"/>
       <arg name="kinematics_config" value="$(arg left_kinematics_config)"/>
       <arg name="tf_prefix" value="$(arg left_prefix)"/>
       <arg name="controllers" value="$(arg left_controllers)"/>
@@ -58,32 +61,33 @@
     </include>
 
     <node name="joint_state_relay" type="relay" pkg="topic_tools" args="joint_states /joint_states" />
-   </group>
+  </group>
 
-   <group ns="right_ur">
-     <include file="$(find ur_robot_driver)/launch/ur_control.launch">
-       <arg name="debug" value="$(arg debug)"/>
-       <arg name="use_tool_communication" value="$(arg use_tool_communication)"/>
-       <arg name="controller_config_file" value="$(arg right_controller_config_file)"/>
-       <arg name="robot_ip" value="$(arg right_robot_ip)"/>
-       <arg name="reverse_port" value="$(arg right_reverse_port)"/>
-       <arg name="script_sender_port" value="$(arg right_script_sender_port)"/>
-       <arg name="trajectory_port" value="$(arg right_trajectory_port)"/>
-       <arg name="kinematics_config" value="$(arg right_kinematics_config)"/>
-       <arg name="tf_prefix" value="$(arg right_prefix)"/>
-       <arg name="controllers" value="$(arg right_controllers)"/>
-       <arg name="stopped_controllers" value="$(arg right_stopped_controllers)"/>
-       <arg name="headless_mode" value="$(arg headless_mode)"/>
-       <arg name="tool_voltage" value="$(arg tool_voltage)"/>
-       <arg name="tool_parity" value="$(arg tool_parity)"/>
-       <arg name="tool_baud_rate" value="$(arg tool_baud_rate)"/>
-       <arg name="tool_stop_bits" value="$(arg tool_stop_bits)"/>
-       <arg name="tool_rx_idle_chars" value="$(arg tool_rx_idle_chars)"/>
-       <arg name="tool_tx_idle_chars" value="$(arg tool_tx_idle_chars)"/>
-       <arg name="tool_device_name" value="$(arg tool_device_name)"/>
-       <arg name="tool_tcp_port" value="$(arg tool_tcp_port)"/>
-     </include>
+  <group ns="right_ur">
+    <include file="$(find ur_robot_driver)/launch/ur_control.launch">
+      <arg name="debug" value="$(arg debug)"/>
+      <arg name="use_tool_communication" value="$(arg use_tool_communication)"/>
+      <arg name="controller_config_file" value="$(arg right_controller_config_file)"/>
+      <arg name="robot_ip" value="$(arg right_robot_ip)"/>
+      <arg name="reverse_port" value="$(arg right_reverse_port)"/>
+      <arg name="script_sender_port" value="$(arg right_script_sender_port)"/>
+      <arg name="trajectory_port" value="$(arg right_trajectory_port)"/>
+      <arg name="script_command_port" value="$(arg right_script_command_port)"/>
+      <arg name="kinematics_config" value="$(arg right_kinematics_config)"/>
+      <arg name="tf_prefix" value="$(arg right_prefix)"/>
+      <arg name="controllers" value="$(arg right_controllers)"/>
+      <arg name="stopped_controllers" value="$(arg right_stopped_controllers)"/>
+      <arg name="headless_mode" value="$(arg headless_mode)"/>
+      <arg name="tool_voltage" value="$(arg tool_voltage)"/>
+      <arg name="tool_parity" value="$(arg tool_parity)"/>
+      <arg name="tool_baud_rate" value="$(arg tool_baud_rate)"/>
+      <arg name="tool_stop_bits" value="$(arg tool_stop_bits)"/>
+      <arg name="tool_rx_idle_chars" value="$(arg tool_rx_idle_chars)"/>
+      <arg name="tool_tx_idle_chars" value="$(arg tool_tx_idle_chars)"/>
+      <arg name="tool_device_name" value="$(arg tool_device_name)"/>
+      <arg name="tool_tcp_port" value="$(arg tool_tcp_port)"/>
+    </include>
 
-     <node name="joint_state_relay" type="relay" pkg="topic_tools" args="joint_states /joint_states" />
-    </group>
+    <node name="joint_state_relay" type="relay" pkg="topic_tools" args="joint_states /joint_states" />
+  </group>
 </launch>
