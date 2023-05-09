@@ -1,0 +1,14 @@
+# Franka Arm Parameters
+export RIDGEBACK_FRANKA_MODEL=fr3 # or panda
+export RIDGEBACK_FRANKA_XYZ="0.21 0.0 0.0"
+export RIDGEBACK_FRANKA_RPY="0 0 0"
+export RIDGEBACK_FRANKA_PARENT="mid_mount"
+export RIDGEBACK_FRANKA_GRIPPER_ENABLED="false"
+export RIDGEBACK_FRANKA_GRIPPER_XYZ="0 0 0.1034"
+export RIDGEBACK_FRANKA_GRIPPER_RPY="0 0 0"
+# Ridgeback Top Plate Parameters
+export RIDGEBACK_USER_RAIL_ENABLED=0
+export RIDGEBACK_LARGE_TOP_PLATE=1
+export RIDGEBACK_PACS_ENABLED=0
+# Add URDF to Ridgeback Extras
+export RIDGEBACK_URDF_EXTRAS=$(catkin_find ridgeback_franka_description urdf/ridgeback_franka_description.urdf.xacro --first-only)
