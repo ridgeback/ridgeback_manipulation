@@ -2,6 +2,7 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Includes -->
+  <xacro:include filename="$(find franka_description)/robots/common/utils.xacro" />
   <xacro:include filename="$(find franka_description)/robots/common/franka_robot.xacro"/>
   <xacro:include filename="$(find franka_description)/robots/common/franka_hand.xacro"/>
 
